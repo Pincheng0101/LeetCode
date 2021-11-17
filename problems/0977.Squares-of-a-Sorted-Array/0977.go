@@ -1,4 +1,4 @@
-package problems
+package p0977
 
 import "sort"
 

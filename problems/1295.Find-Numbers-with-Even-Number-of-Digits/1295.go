@@ -1,4 +1,4 @@
-package leetcode
+package p1295
 
 import "strconv"
 
