@@ -1,6 +1,6 @@
 package leetcode
 
-import strconv
+import "strconv"
 
 // 1: 每次除 10 算次數，到 0 停止
 func findNumbers_1(nums []int) int {
