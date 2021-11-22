@@ -24,7 +24,7 @@ func testCases() []testCase {
 	}
 }
 
-func TestRemoveElement(t *testing.T) {
+func TestRemoveDuplicates(t *testing.T) {
 	testCases := testCases()
 	for _, testCase := range testCases {
 		output := removeDuplicates(testCase.Input)
