@@ -25,3 +25,26 @@ func thirdMax_1(nums []int) int {
 	}
 	return nums[0]
 }
+
+// 2. 直接找出前三大的值
+// Runtime: 3 ms, Memory Usage: 3.1 MB
+func thirdMax_2(nums []int) int {
+	const minInt = -1 << 32
+	first, second, third := minInt, minInt, minInt
+	for i := 0; i < len(nums); i++ {
+		if nums[i] == first || nums[i] == second || nums[i] == third {
+			continue
+		}
+		if nums[i] > first {
+			first, second, third = nums[i], first, second
+		} else if nums[i] > second {
+			second, third = nums[i], second
+		} else if nums[i] > third {
+			third = nums[i]
+		}
+	}
+	if third == minInt {
+		return first
+	}
+	return third
+}

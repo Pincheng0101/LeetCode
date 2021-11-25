@@ -26,3 +26,11 @@ func TestThirdMax_1(t *testing.T) {
 		assert.Equal(t, testCase.Output, output)
 	}
 }
+
+func TestThirdMax_2(t *testing.T) {
+	testCases := testCases()
+	for _, testCase := range testCases {
+		output := thirdMax_2(testCase.Input)
+		assert.Equal(t, testCase.Output, output)
+	}
+}
