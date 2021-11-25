@@ -2,7 +2,7 @@ package p0977
 
 import "sort"
 
-// 1: 用最簡潔的方法實現，不過輸入是有序的，可以針對有序的方式去想
+// 1. 用最簡潔的方法實現，不過輸入是有序的，可以針對有序的方式去想
 func sortedSquares_1(nums []int) []int {
 	for i := 0; i < len(nums); i++ {
 		nums[i] *= nums[i]
@@ -12,7 +12,7 @@ func sortedSquares_1(nums []int) []int {
 	return nums
 }
 
-// 2: 從左右兩邊判斷大小依序填入
+// 2. 從左右兩邊判斷大小依序填入
 func abs(a int) int {
 	if a > 0 {
 		return a

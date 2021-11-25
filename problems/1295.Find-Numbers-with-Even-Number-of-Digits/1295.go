@@ -2,7 +2,7 @@ package p1295
 
 import "strconv"
 
-// 1: 每次除 10 算次數，到 0 停止
+// 1. 每次除 10 算次數，到 0 停止
 func findNumbers_1(nums []int) int {
 	count := 0
 	for _, num := range nums {
@@ -18,7 +18,7 @@ func findNumbers_1(nums []int) int {
 	return count
 }
 
-// 2: 轉成字串後用字串長度判斷
+// 2. 轉成字串後用字串長度判斷
 func findNumbers_2(nums []int) int {
 	count := 0
 	for _, num := range nums {

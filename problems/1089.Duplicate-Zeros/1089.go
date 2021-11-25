@@ -1,6 +1,6 @@
 package p1089
 
-// 1: 先複製一份 arr 出來再去修改原先的 arr
+// 1. 先複製一份 arr 出來再去修改原先的 arr
 // Runtime: 4ms, Memory Usage: 3.5MB
 func duplicateZeros_1(arr []int) {
 	arrCopy := make([]int, len(arr))
@@ -20,7 +20,7 @@ func duplicateZeros_1(arr []int) {
 	}
 }
 
-// 2: 先計算 0 的數量，再從後面往前補
+// 2. 先計算 0 的數量，再從後面往前補
 // Runtime: 4ms, Memory Usage: 3.3MB
 func duplicateZeros_2(arr []int) {
 	zeroCount := 0
@@ -46,7 +46,7 @@ func duplicateZeros_2(arr []int) {
 	}
 }
 
-// 3: 同上，不過只計算複製 0 的數量，要額外判斷最後一個是 0 的情況，有可能不需要複製
+// 3. 同上，不過只計算複製 0 的數量，要額外判斷最後一個是 0 的情況，有可能不需要複製
 // Runtime: 4ms, Memory Usage: 3.3MB
 func duplicateZeros_3(arr []int) {
 	zeroDupCount := 0
