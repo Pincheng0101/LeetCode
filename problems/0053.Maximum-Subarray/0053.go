@@ -1,15 +1,13 @@
 package p0053
 
-import "math"
-
 // Kadane's Algorithm
 func maxSubArray(nums []int) int {
 	if len(nums) == 0 {
 		return 0
 	}
-	bestSum, currentSum := math.MinInt32, math.MinInt32
-	for _, v := range nums {
-		currentSum = max(v, currentSum+v)
+	bestSum, currentSum := nums[0], nums[0]
+	for i := 1; i < len(nums); i++ {
+		currentSum = max(nums[i], currentSum+nums[i])
 		bestSum = max(bestSum, currentSum)
 	}
 	return bestSum
