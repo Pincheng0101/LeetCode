@@ -9,6 +9,5 @@ func removeElement(nums []int, val int) int {
 			k++
 		}
 	}
-
 	return k
 }

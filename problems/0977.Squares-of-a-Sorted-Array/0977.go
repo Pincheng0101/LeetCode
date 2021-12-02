@@ -8,7 +8,6 @@ func sortedSquares_1(nums []int) []int {
 		nums[i] *= nums[i]
 	}
 	sort.Ints(nums)
-
 	return nums
 }
 
@@ -17,7 +16,6 @@ func abs(a int) int {
 	if a > 0 {
 		return a
 	}
-
 	return -a
 }
 
@@ -33,6 +31,5 @@ func sortedSquares_2(nums []int) []int {
 			right_index--
 		}
 	}
-
 	return results
 }

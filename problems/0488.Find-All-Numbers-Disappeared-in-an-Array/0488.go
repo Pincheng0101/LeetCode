@@ -49,7 +49,6 @@ func findDisappearedNumbers_2(nums []int) []int {
 			result = append(result, i+1)
 		}
 	}
-
 	return result
 }
 
@@ -57,6 +56,5 @@ func abs(a int) int {
 	if a > 0 {
 		return a
 	}
-
 	return -a
 }

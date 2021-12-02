@@ -14,6 +14,5 @@ func removeDuplicates(nums []int) int {
 			n++
 		}
 	}
-
 	return n
 }
