@@ -1,35 +1,26 @@
-package singlylinkedlist
-
-type ListNode struct {
-	val  int
-	next *ListNode
-}
+package linkedlist
 
 type SinglyLinkedList struct {
-	head *ListNode
-	size int
-}
-
-func NewListNode(val int) *ListNode {
-	return &ListNode{val: val}
+	Head *ListNode
+	Size int
 }
 
 func NewSinglyLinkedList() *SinglyLinkedList {
 	return &SinglyLinkedList{
-		head: NewListNode(0),
-		size: 0,
+		Head: NewListNode(0),
+		Size: 0,
 	}
 }
 
 func (this *SinglyLinkedList) Get(index int) int {
-	if index < 0 || index >= this.size {
+	if index < 0 || index >= this.Size {
 		return -1
 	}
-	cur := this.head
+	cur := this.Head
 	for i := 0; i < index+1; i++ {
-		cur = cur.next
+		cur = cur.Next
 	}
-	return cur.val
+	return cur.Val
 }
 
 func (this *SinglyLinkedList) AddAtHead(val int) {
@@ -37,34 +28,34 @@ func (this *SinglyLinkedList) AddAtHead(val int) {
 }
 
 func (this *SinglyLinkedList) AddAtTail(val int) {
-	this.AddAtIndex(this.size, val)
+	this.AddAtIndex(this.Size, val)
 }
 
 func (this *SinglyLinkedList) AddAtIndex(index int, val int) {
-	if index > this.size {
+	if index > this.Size {
 		return
 	}
 	if index < 0 {
 		index = 0
 	}
-	cur := this.head
+	cur := this.Head
 	to_add := NewListNode(val)
 	for i := 0; i < index; i++ {
-		cur = cur.next
+		cur = cur.Next
 	}
-	to_add.next = cur.next
-	cur.next = to_add
-	this.size++
+	to_add.Next = cur.Next
+	cur.Next = to_add
+	this.Size++
 }
 
 func (this *SinglyLinkedList) DeleteAtIndex(index int) {
-	if index < 0 || index >= this.size {
+	if index < 0 || index >= this.Size {
 		return
 	}
-	cur := this.head
+	cur := this.Head
 	for i := 0; i < index; i++ {
-		cur = cur.next
+		cur = cur.Next
 	}
-	cur.next = cur.next.next
-	this.size--
+	cur.Next = cur.Next.Next
+	this.Size--
 }
