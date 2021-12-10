@@ -1,5 +1,7 @@
 package p1290
 
+import . "github.com/pincheng0101/leetcode/datastructures/linkedlist"
+
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
