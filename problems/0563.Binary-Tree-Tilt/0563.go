@@ -1,5 +1,7 @@
 package p0563
 
+import . "github.com/pincheng0101/leetcode/datastructures/binarytree"
+
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
