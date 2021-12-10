@@ -14,6 +14,10 @@ func NewTreeNode() *TreeNode {
 	return &TreeNode{}
 }
 
+// [4,2,9,3,5,null,7] =>
+//        4
+//      2   9
+//     3 5   7
 func NewBinaryTree(val []interface{}) *BinaryTree {
 	tree := BinaryTree{}
 	tree.Root = AddNode(val)
