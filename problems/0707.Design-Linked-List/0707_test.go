@@ -40,7 +40,6 @@ func TestMyLinkedList2(t *testing.T) {
 	assert.Equal(t, myLinkedList.Get(3), 0)
 	assert.Equal(t, myLinkedList.Get(4), 4)
 	myLinkedList.AddAtHead(4)
-
 	myLinkedList.AddAtIndex(5, 0)
 	myLinkedList.AddAtHead(6)
 }
