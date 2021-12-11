@@ -22,11 +22,20 @@ func testCases() []testCase {
 	}
 }
 
-func TestFindTilt(t *testing.T) {
+func TestFindTilt_1(t *testing.T) {
 	testCases := testCases()
 	for _, testCase := range testCases {
 		tree := NewBinaryTree(testCase.Input)
-		output := findTilt(tree.Root)
+		output := findTilt_1(tree.Root)
+		assert.Equal(t, testCase.Output, output)
+	}
+}
+
+func TestFindTilt_2(t *testing.T) {
+	testCases := testCases()
+	for _, testCase := range testCases {
+		tree := NewBinaryTree(testCase.Input)
+		output := findTilt_2(tree.Root)
 		assert.Equal(t, testCase.Output, output)
 	}
 }

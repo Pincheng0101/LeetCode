@@ -10,18 +10,20 @@ import . "github.com/pincheng0101/leetcode/datastructures/binarytree"
  *     Right *TreeNode
  * }
  */
-func findTilt(root *TreeNode) int {
-	if root == nil {
-		return 0
-	}
-	return abs(sumNode(root.Left)-sumNode(root.Right)) + findTilt(root.Left) + findTilt(root.Right)
+func findTilt_1(root *TreeNode) int {
+	tile := 0
+	sumValues(root, &tile)
+	return tile
 }
 
-func sumNode(node *TreeNode) int {
+func sumValues(node *TreeNode, tile *int) int {
 	if node == nil {
 		return 0
 	}
-	return node.Val + sumNode(node.Left) + sumNode(node.Right)
+	left := sumValues(node.Left, tile)
+	right := sumValues(node.Right, tile)
+	*tile += abs(left - right)
+	return node.Val + left + right
 }
 
 func abs(a int) int {
@@ -29,4 +31,20 @@ func abs(a int) int {
 		return a
 	}
 	return -a
+}
+
+// https://leetcode-cn.com/problems/binary-tree-tilt/solution/er-cha-shu-de-po-du-by-leetcode-solution-7rha/
+func findTilt_2(root *TreeNode) (ans int) {
+	var dfs func(*TreeNode) int
+	dfs = func(node *TreeNode) int {
+		if node == nil {
+			return 0
+		}
+		sumLeft := dfs(node.Left)
+		sumRight := dfs(node.Right)
+		ans += abs(sumLeft - sumRight)
+		return sumLeft + sumRight + node.Val
+	}
+	dfs(root)
+	return
 }
