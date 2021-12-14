@@ -10,6 +10,7 @@ import . "github.com/pincheng0101/leetcode/datastructures/binarytree"
  *     Right *TreeNode
  * }
  */
+// 要注意 binary tree 的特性，比 node 大的值放右邊，小的放左邊
 func rangeSumBST(root *TreeNode, low int, high int) (ans int) {
 	var dfs func(*TreeNode)
 	dfs = func(node *TreeNode) {
