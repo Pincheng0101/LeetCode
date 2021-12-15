@@ -23,6 +23,17 @@ func (this *SinglyLinkedList) Get(index int) int {
 	return cur.Val
 }
 
+func (this *SinglyLinkedList) GetNode(index int) *ListNode {
+	if index < 0 || index >= this.Size {
+		return nil
+	}
+	cur := this.Head
+	for i := 0; i < index+1; i++ {
+		cur = cur.Next
+	}
+	return cur
+}
+
 func (this *SinglyLinkedList) AddAtHead(val int) {
 	this.AddAtIndex(0, val)
 }
