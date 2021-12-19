@@ -25,7 +25,7 @@ func testCases() []testCase {
 	}
 }
 
-func TestHasCycle(t *testing.T) {
+func TestHasCycle_1(t *testing.T) {
 	testCases := testCases()
 	for _, testCase := range testCases {
 		list := NewSinglyLinkedList()
@@ -34,7 +34,21 @@ func TestHasCycle(t *testing.T) {
 		}
 		lastNode := list.GetNode(len(testCase.Input.Head) - 1)
 		lastNode.Next = list.GetNode(testCase.Input.Pos)
-		output := hasCycle(list.Head)
+		output := hasCycle_1(list.Head)
+		assert.Equal(t, testCase.Output, output)
+	}
+}
+
+func TestHasCycle_2(t *testing.T) {
+	testCases := testCases()
+	for _, testCase := range testCases {
+		list := NewSinglyLinkedList()
+		for i := 0; i < len(testCase.Input.Head); i++ {
+			list.AddAtTail(testCase.Input.Head[i])
+		}
+		lastNode := list.GetNode(len(testCase.Input.Head) - 1)
+		lastNode.Next = list.GetNode(testCase.Input.Pos)
+		output := hasCycle_2(list.Head)
 		assert.Equal(t, testCase.Output, output)
 	}
 }
