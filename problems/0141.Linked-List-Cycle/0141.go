@@ -27,17 +27,17 @@ func hasCycle_2(head *ListNode) bool {
 	if head == nil {
 		return false
 	}
-	first := head
-	second := head.Next
-	for second != nil {
-		if first == second {
+	slow := head
+	fast := head.Next
+	for fast != nil {
+		if slow == fast {
 			return true
 		}
-		if second.Next == nil {
+		if fast.Next == nil {
 			return false
 		}
-		first = first.Next
-		second = second.Next.Next
+		slow = slow.Next
+		fast = fast.Next.Next
 	}
 	return false
 
