@@ -24,20 +24,19 @@ func hasCycle_1(head *ListNode) bool {
 
 // 一個一次走兩步，一個一次走一步，如果是 cycle 遲早會追到
 func hasCycle_2(head *ListNode) bool {
-	if head == nil {
+	if head == nil || head.Next == nil {
 		return false
 	}
-	slow := head
-	fast := head.Next
-	for fast != nil {
+	slow, fast := head, head
+	for fast.Next != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
+		if fast == nil {
+			return false
+		}
 		if slow == fast {
 			return true
 		}
-		if fast.Next == nil {
-			return false
-		}
-		slow = slow.Next
-		fast = fast.Next.Next
 	}
 	return false
 
