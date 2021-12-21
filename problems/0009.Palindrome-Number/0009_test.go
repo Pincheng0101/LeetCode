@@ -19,10 +19,18 @@ func testCases() []testCase {
 	}
 }
 
-func TestIsPalindrome(t *testing.T) {
+func TestIsPalindrome_1(t *testing.T) {
 	testCases := testCases()
 	for _, testCase := range testCases {
-		output := isPalindrome(testCase.Input)
+		output := isPalindrome_1(testCase.Input)
+		assert.Equal(t, testCase.Output, output)
+	}
+}
+
+func TestIsPalindrome_2(t *testing.T) {
+	testCases := testCases()
+	for _, testCase := range testCases {
+		output := isPalindrome_2(testCase.Input)
 		assert.Equal(t, testCase.Output, output)
 	}
 }
