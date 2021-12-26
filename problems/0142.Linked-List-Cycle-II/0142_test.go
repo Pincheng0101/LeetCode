@@ -34,7 +34,7 @@ func TestDetectCycle_1(t *testing.T) {
 		}
 		lastNode := list.GetNode(len(testCase.Input.Head) - 1)
 		lastNode.Next = list.GetNode(testCase.Input.Pos)
-		output := detectCycle_1(list.Head)
+		output := detectCycle_1(list.Head.Next)
 		assert.Equal(t, lastNode.Next, output)
 	}
 }
@@ -48,7 +48,7 @@ func TestDetectCycle_2(t *testing.T) {
 		}
 		lastNode := list.GetNode(len(testCase.Input.Head) - 1)
 		lastNode.Next = list.GetNode(testCase.Input.Pos)
-		output := detectCycle_2(list.Head)
+		output := detectCycle_2(list.Head.Next)
 		assert.Equal(t, lastNode.Next, output)
 	}
 }

@@ -63,7 +63,7 @@ func TestGetIntersectionNode_1(t *testing.T) {
 		listBSkipNode := listB.GetNode(testCase.Input.skipB - 1)
 		listBSkipNode.Next = listASkipNode.Next
 
-		output := getIntersectionNode_1(listA.Head, listB.Head)
+		output := getIntersectionNode_1(listA.Head.Next, listB.Head.Next)
 		assert.Equal(t, listASkipNode.Next, output)
 	}
 }
@@ -85,7 +85,7 @@ func TestGetIntersectionNode_2(t *testing.T) {
 		listBSkipNode := listB.GetNode(testCase.Input.skipB - 1)
 		listBSkipNode.Next = listASkipNode.Next
 
-		output := getIntersectionNode_2(listA.Head, listB.Head)
+		output := getIntersectionNode_2(listA.Head.Next, listB.Head.Next)
 		assert.Equal(t, listASkipNode.Next, output)
 	}
 }

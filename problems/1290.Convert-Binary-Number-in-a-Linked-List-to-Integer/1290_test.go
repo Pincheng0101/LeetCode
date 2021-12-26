@@ -32,7 +32,7 @@ func TestGetDecimalValue(t *testing.T) {
 		for i := len(testCase.Input) - 1; i >= 0; i-- {
 			list.AddAtHead(testCase.Input[i])
 		}
-		output := getDecimalValue(list.Head)
+		output := getDecimalValue(list.Head.Next)
 		assert.Equal(t, testCase.Output, output)
 	}
 }
