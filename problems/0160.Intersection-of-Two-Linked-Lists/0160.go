@@ -27,6 +27,7 @@ func getIntersectionNode_1(headA, headB *ListNode) *ListNode {
 }
 
 // time: O(m+n), memory: O(1)
+// pa 走到底然後再從 headB 開始走到交點的位置 = pb 走到底然後再從 headA 開始走到交點的位置
 func getIntersectionNode_2(headA, headB *ListNode) *ListNode {
 	pa := headA
 	pb := headB
