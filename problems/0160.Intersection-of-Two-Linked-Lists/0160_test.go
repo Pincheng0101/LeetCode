@@ -46,7 +46,7 @@ func testCases() []testCase {
 	}
 }
 
-func TestGetIntersectionNode(t *testing.T) {
+func TestGetIntersectionNode_1(t *testing.T) {
 	testCases := testCases()
 	for _, testCase := range testCases {
 		listA := NewSinglyLinkedList()
@@ -63,7 +63,29 @@ func TestGetIntersectionNode(t *testing.T) {
 		listBSkipNode := listB.GetNode(testCase.Input.skipB - 1)
 		listBSkipNode.Next = listASkipNode.Next
 
-		output := getIntersectionNode(listA.Head, listB.Head)
+		output := getIntersectionNode_1(listA.Head, listB.Head)
+		assert.Equal(t, listASkipNode.Next, output)
+	}
+}
+
+func TestGetIntersectionNode_2(t *testing.T) {
+	testCases := testCases()
+	for _, testCase := range testCases {
+		listA := NewSinglyLinkedList()
+		for i := 0; i < len(testCase.Input.listA); i++ {
+			listA.AddAtTail(testCase.Input.listA[i])
+		}
+
+		listB := NewSinglyLinkedList()
+		for i := 0; i < len(testCase.Input.listB); i++ {
+			listB.AddAtTail(testCase.Input.listB[i])
+		}
+
+		listASkipNode := listA.GetNode(testCase.Input.skipA - 1)
+		listBSkipNode := listB.GetNode(testCase.Input.skipB - 1)
+		listBSkipNode.Next = listASkipNode.Next
+
+		output := getIntersectionNode_2(listA.Head, listB.Head)
 		assert.Equal(t, listASkipNode.Next, output)
 	}
 }
