@@ -25,14 +25,31 @@ func testCases() []testCase {
 	}
 }
 
-func TestReverseList(t *testing.T) {
+func TestReverseList_1(t *testing.T) {
 	testCases := testCases()
 	for _, testCase := range testCases {
 		list := NewSinglyLinkedList()
 		for i := 0; i < len(testCase.Input.head); i++ {
 			list.AddAtTail(testCase.Input.head[i])
 		}
-		output := reverseList(list.Head.Next)
+		output := reverseList_1(list.Head.Next)
+		outputList := make([]int, 0)
+		for output != nil {
+			outputList = append(outputList, output.Val)
+			output = output.Next
+		}
+		assert.Equal(t, testCase.Output, outputList)
+	}
+}
+
+func TestReverseList_2(t *testing.T) {
+	testCases := testCases()
+	for _, testCase := range testCases {
+		list := NewSinglyLinkedList()
+		for i := 0; i < len(testCase.Input.head); i++ {
+			list.AddAtTail(testCase.Input.head[i])
+		}
+		output := reverseList_2(list.Head.Next)
 		outputList := make([]int, 0)
 		for output != nil {
 			outputList = append(outputList, output.Val)
