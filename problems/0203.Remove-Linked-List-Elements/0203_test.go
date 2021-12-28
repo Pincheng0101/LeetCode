@@ -33,13 +33,8 @@ func TestRemoveElements(t *testing.T) {
 			list.AddAtTail(testCase.Input.head[i])
 		}
 		output := removeElements(list.Head.Next, testCase.Input.val)
+		outputTestData := output.Slice()
 
-		outputList := []int{}
-		for output != nil {
-			outputList = append(outputList, output.Val)
-			output = output.Next
-		}
-
-		assert.Equal(t, testCase.Output, outputList)
+		assert.Equal(t, testCase.Output, outputTestData)
 	}
 }

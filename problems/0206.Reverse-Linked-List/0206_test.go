@@ -33,12 +33,9 @@ func TestReverseList_1(t *testing.T) {
 			list.AddAtTail(testCase.Input.head[i])
 		}
 		output := reverseList_1(list.Head.Next)
-		outputList := make([]int, 0)
-		for output != nil {
-			outputList = append(outputList, output.Val)
-			output = output.Next
-		}
-		assert.Equal(t, testCase.Output, outputList)
+		outputTestData := output.Slice()
+
+		assert.Equal(t, testCase.Output, outputTestData)
 	}
 }
 
@@ -50,11 +47,8 @@ func TestReverseList_2(t *testing.T) {
 			list.AddAtTail(testCase.Input.head[i])
 		}
 		output := reverseList_2(list.Head.Next)
-		outputList := make([]int, 0)
-		for output != nil {
-			outputList = append(outputList, output.Val)
-			output = output.Next
-		}
-		assert.Equal(t, testCase.Output, outputList)
+		outputTestData := output.Slice()
+
+		assert.Equal(t, testCase.Output, outputTestData)
 	}
 }

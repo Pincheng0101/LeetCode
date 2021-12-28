@@ -34,13 +34,8 @@ func TestRemoveNthFromEnd(t *testing.T) {
 			list.AddAtTail(testCase.Input.head[i])
 		}
 		output := removeNthFromEnd(list.Head.Next, testCase.Input.n)
+		outputTestData := output.Slice()
 
-		outputList := []int{}
-		for output != nil {
-			outputList = append(outputList, output.Val)
-			output = output.Next
-		}
-
-		assert.Equal(t, testCase.Output, outputList)
+		assert.Equal(t, testCase.Output, outputTestData)
 	}
 }
