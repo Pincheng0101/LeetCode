@@ -25,7 +25,7 @@ func testCases() []testCase {
 	}
 }
 
-func TestMergeTwoLists1(t *testing.T) {
+func TestMergeTwoLists_1(t *testing.T) {
 	testCases := testCases()
 	for _, testCase := range testCases {
 		list1 := NewSinglyLinkedList()
@@ -36,13 +36,13 @@ func TestMergeTwoLists1(t *testing.T) {
 		for i := 0; i < len(testCase.Input.list2); i++ {
 			list2.AddAtTail(testCase.Input.list2[i])
 		}
-		output := mergeTwoLists1(list1.Head.Next, list2.Head.Next)
+		output := mergeTwoLists_1(list1.Head.Next, list2.Head.Next)
 		outputTestData := output.Slice()
 		assert.Equal(t, testCase.Output, outputTestData)
 	}
 }
 
-func TestMergeTwoLists2(t *testing.T) {
+func TestMergeTwoLists_2(t *testing.T) {
 	testCases := testCases()
 	for _, testCase := range testCases {
 		list1 := NewSinglyLinkedList()
@@ -53,7 +53,7 @@ func TestMergeTwoLists2(t *testing.T) {
 		for i := 0; i < len(testCase.Input.list2); i++ {
 			list2.AddAtTail(testCase.Input.list2[i])
 		}
-		output := mergeTwoLists2(list1.Head.Next, list2.Head.Next)
+		output := mergeTwoLists_2(list1.Head.Next, list2.Head.Next)
 		outputTestData := output.Slice()
 		assert.Equal(t, testCase.Output, outputTestData)
 	}
