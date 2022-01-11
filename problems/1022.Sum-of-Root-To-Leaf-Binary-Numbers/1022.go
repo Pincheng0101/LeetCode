@@ -16,10 +16,10 @@ func sumRootToLeaf(root *TreeNode) int {
 	if root == nil {
 		return 0
 	}
-	var sum int = 0
 	if root.Left == nil && root.Right == nil {
-		sum += root.Val
+		return root.Val
 	}
+	var sum int = 0
 	if root.Left != nil {
 		root.Left.Val += root.Val << 1
 		sum += sumRootToLeaf(root.Left)
@@ -28,6 +28,5 @@ func sumRootToLeaf(root *TreeNode) int {
 		root.Right.Val += root.Val << 1
 		sum += sumRootToLeaf(root.Right)
 	}
-
 	return sum
 }
