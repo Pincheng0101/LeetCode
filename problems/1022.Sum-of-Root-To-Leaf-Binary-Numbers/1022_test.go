@@ -20,11 +20,20 @@ func testCases() []testCase {
 	}
 }
 
-func TestSumRootToLeaf(t *testing.T) {
+func TestSumRootToLeaf_1(t *testing.T) {
 	testCases := testCases()
 	for _, testCase := range testCases {
 		tree := NewBinaryTree(testCase.Input)
-		output := sumRootToLeaf(tree.Root)
+		output := sumRootToLeaf_1(tree.Root)
+		assert.Equal(t, testCase.Output, output)
+	}
+}
+
+func TestSumRootToLeaf_2(t *testing.T) {
+	testCases := testCases()
+	for _, testCase := range testCases {
+		tree := NewBinaryTree(testCase.Input)
+		output := sumRootToLeaf_2(tree.Root)
 		assert.Equal(t, testCase.Output, output)
 	}
 }
