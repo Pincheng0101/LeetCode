@@ -29,9 +29,7 @@ func TestRemoveElements(t *testing.T) {
 	testCases := testCases()
 	for _, testCase := range testCases {
 		list := NewSinglyLinkedList()
-		for i := 0; i < len(testCase.Input.head); i++ {
-			list.AddAtTail(testCase.Input.head[i])
-		}
+		list.AddValuesWithSlices(testCase.Input.head)
 		output := removeElements(list.Head.Next, testCase.Input.val)
 		outputTestData := output.Slice()
 

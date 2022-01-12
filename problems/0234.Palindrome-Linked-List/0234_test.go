@@ -26,9 +26,7 @@ func TestIsPalindrome(t *testing.T) {
 	testCases := testCases()
 	for _, testCase := range testCases {
 		list := NewSinglyLinkedList()
-		for i := 0; i < len(testCase.Input); i++ {
-			list.AddAtTail(testCase.Input[i])
-		}
+		list.AddValuesWithSlices(testCase.Input)
 		output := isPalindrome(list.Head.Next)
 		assert.Equal(t, testCase.Output, output)
 	}

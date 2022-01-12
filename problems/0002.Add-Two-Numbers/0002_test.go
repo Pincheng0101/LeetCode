@@ -29,13 +29,9 @@ func TestAddTwoNumbers(t *testing.T) {
 	testCases := testCases()
 	for _, testCase := range testCases {
 		l1 := NewSinglyLinkedList()
-		for i := 0; i < len(testCase.Input.l1); i++ {
-			l1.AddAtTail(testCase.Input.l1[i])
-		}
+		l1.AddValuesWithSlices(testCase.Input.l1)
 		l2 := NewSinglyLinkedList()
-		for i := 0; i < len(testCase.Input.l2); i++ {
-			l2.AddAtTail(testCase.Input.l2[i])
-		}
+		l2.AddValuesWithSlices(testCase.Input.l2)
 		output := addTwoNumbers(l1.Head.Next, l2.Head.Next)
 		outputTestData := output.Slice()
 		assert.Equal(t, testCase.Output, outputTestData)

@@ -29,9 +29,7 @@ func TestReverseList_1(t *testing.T) {
 	testCases := testCases()
 	for _, testCase := range testCases {
 		list := NewSinglyLinkedList()
-		for i := 0; i < len(testCase.Input.head); i++ {
-			list.AddAtTail(testCase.Input.head[i])
-		}
+		list.AddValuesWithSlices(testCase.Input.head)
 		output := reverseList_1(list.Head.Next)
 		outputTestData := output.Slice()
 
@@ -43,9 +41,7 @@ func TestReverseList_2(t *testing.T) {
 	testCases := testCases()
 	for _, testCase := range testCases {
 		list := NewSinglyLinkedList()
-		for i := 0; i < len(testCase.Input.head); i++ {
-			list.AddAtTail(testCase.Input.head[i])
-		}
+		list.AddValuesWithSlices(testCase.Input.head)
 		output := reverseList_2(list.Head.Next)
 		outputTestData := output.Slice()
 

@@ -70,3 +70,12 @@ func (this *SinglyLinkedList) DeleteAtIndex(index int) {
 	cur.Next = cur.Next.Next
 	this.Size--
 }
+
+func (this *SinglyLinkedList) AddValuesWithSlices(values []int) {
+	cur := this.Head
+	for _, v := range values {
+		cur.Next = NewListNode(v)
+		cur = cur.Next
+	}
+	this.Size += len(values)
+}

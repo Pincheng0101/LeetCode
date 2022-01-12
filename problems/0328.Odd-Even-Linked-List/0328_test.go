@@ -25,9 +25,7 @@ func TestOddEvenList(t *testing.T) {
 	testCases := testCases()
 	for _, testCase := range testCases {
 		list := NewSinglyLinkedList()
-		for i := 0; i < len(testCase.Input); i++ {
-			list.AddAtTail(testCase.Input[i])
-		}
+		list.AddValuesWithSlices(testCase.Input)
 		output := oddEvenList(list.Head.Next)
 		outputTestData := output.Slice()
 		assert.Equal(t, testCase.Output, outputTestData)

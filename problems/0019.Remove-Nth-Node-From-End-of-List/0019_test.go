@@ -30,9 +30,7 @@ func TestRemoveNthFromEnd(t *testing.T) {
 	testCases := testCases()
 	for _, testCase := range testCases {
 		list := NewSinglyLinkedList()
-		for i := 0; i < len(testCase.Input.head); i++ {
-			list.AddAtTail(testCase.Input.head[i])
-		}
+		list.AddValuesWithSlices(testCase.Input.head)
 		output := removeNthFromEnd(list.Head.Next, testCase.Input.n)
 		outputTestData := output.Slice()
 

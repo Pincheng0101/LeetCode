@@ -29,9 +29,7 @@ func TestDetectCycle_1(t *testing.T) {
 	testCases := testCases()
 	for _, testCase := range testCases {
 		list := NewSinglyLinkedList()
-		for i := 0; i < len(testCase.Input.Head); i++ {
-			list.AddAtTail(testCase.Input.Head[i])
-		}
+		list.AddValuesWithSlices(testCase.Input.Head)
 		lastNode := list.GetNode(len(testCase.Input.Head) - 1)
 		lastNode.Next = list.GetNode(testCase.Input.Pos)
 		output := detectCycle_1(list.Head.Next)
@@ -43,9 +41,7 @@ func TestDetectCycle_2(t *testing.T) {
 	testCases := testCases()
 	for _, testCase := range testCases {
 		list := NewSinglyLinkedList()
-		for i := 0; i < len(testCase.Input.Head); i++ {
-			list.AddAtTail(testCase.Input.Head[i])
-		}
+		list.AddValuesWithSlices(testCase.Input.Head)
 		lastNode := list.GetNode(len(testCase.Input.Head) - 1)
 		lastNode.Next = list.GetNode(testCase.Input.Pos)
 		output := detectCycle_2(list.Head.Next)

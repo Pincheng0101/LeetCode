@@ -50,14 +50,10 @@ func TestGetIntersectionNode_1(t *testing.T) {
 	testCases := testCases()
 	for _, testCase := range testCases {
 		listA := NewSinglyLinkedList()
-		for i := 0; i < len(testCase.Input.listA); i++ {
-			listA.AddAtTail(testCase.Input.listA[i])
-		}
+		listA.AddValuesWithSlices(testCase.Input.listA)
 
 		listB := NewSinglyLinkedList()
-		for i := 0; i < len(testCase.Input.listB); i++ {
-			listB.AddAtTail(testCase.Input.listB[i])
-		}
+		listB.AddValuesWithSlices(testCase.Input.listB)
 
 		listASkipNode := listA.GetNode(testCase.Input.skipA - 1)
 		listBSkipNode := listB.GetNode(testCase.Input.skipB - 1)
@@ -72,14 +68,10 @@ func TestGetIntersectionNode_2(t *testing.T) {
 	testCases := testCases()
 	for _, testCase := range testCases {
 		listA := NewSinglyLinkedList()
-		for i := 0; i < len(testCase.Input.listA); i++ {
-			listA.AddAtTail(testCase.Input.listA[i])
-		}
+		listA.AddValuesWithSlices(testCase.Input.listA)
 
 		listB := NewSinglyLinkedList()
-		for i := 0; i < len(testCase.Input.listB); i++ {
-			listB.AddAtTail(testCase.Input.listB[i])
-		}
+		listB.AddValuesWithSlices(testCase.Input.listB)
 
 		listASkipNode := listA.GetNode(testCase.Input.skipA - 1)
 		listBSkipNode := listB.GetNode(testCase.Input.skipB - 1)
