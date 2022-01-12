@@ -1,0 +1,27 @@
+package p{{ title_id }}
+
+
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
+
+type testCase struct {
+	Input  []int
+	Output []int
+}
+
+func testCases() []testCase {
+	return []testCase{
+		{[]int{}, []int{}},
+	}
+}
+
+func TestFunction(t *testing.T) {
+	testCases := testCases()
+	for _, testCase := range testCases {
+		output := testFunction(testCase.Input)
+		assert.Equal(t, testCase.Output, output)
+	}
+}

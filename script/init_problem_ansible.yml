@@ -1,0 +1,41 @@
+- hosts: localhost
+  vars:
+    title: "{{ title }}"
+    title_name: "{{ title[title.find(' ')+1:].replace(' ', '-') }}"
+    title_id: "{{ title[:title.find(' ')-1].zfill(4) }}"
+    directory: "../problems/{{ title_id }}.{{ title_name }}"
+  tasks:
+    - name: Check that directory exists
+      stat:
+        path: "{{ directory }}"
+      register: directory_stat
+
+    - name: Create directory
+      file:
+        path: "{{ directory }}"
+        state: directory
+      when: not directory_stat.stat.exists
+
+    - name: Check that go file exists
+      stat:
+        path: "{{ directory }}/{{ title_id }}.go"
+      register: go_file_stat
+
+    - name: Check that go test file exists
+      stat:
+        path: "{{ directory }}/{{ title_id }}_test.go"
+      register: go_test_file_stat
+
+    - name: Create go file
+      template:
+        src: ./templates/0001.go.j2
+        dest: "{{ directory }}/{{ title_id }}.go"
+        mode: 0755
+      when: not go_file_stat.stat.exists
+
+    - name: Create test file
+      template:
+        src: ./templates/0001_test.go.j2
+        dest: "{{ directory }}/{{ title_id }}_test.go"
+        mode: 0755
+      when: not go_test_file_stat.stat.exists
