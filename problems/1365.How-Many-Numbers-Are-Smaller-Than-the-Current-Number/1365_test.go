@@ -19,10 +19,18 @@ func testCases() []testCase {
 	}
 }
 
-func TestSmallerNumbersThanCurrent(t *testing.T) {
+func TestSmallerNumbersThanCurrent_1(t *testing.T) {
 	testCases := testCases()
 	for _, testCase := range testCases {
-		output := smallerNumbersThanCurrent(testCase.Input)
+		output := smallerNumbersThanCurrent_1(testCase.Input)
+		assert.Equal(t, testCase.Output, output)
+	}
+}
+
+func TestSmallerNumbersThanCurrent_2(t *testing.T) {
+	testCases := testCases()
+	for _, testCase := range testCases {
+		output := smallerNumbersThanCurrent_2(testCase.Input)
 		assert.Equal(t, testCase.Output, output)
 	}
 }
