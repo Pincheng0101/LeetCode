@@ -34,6 +34,20 @@ func (this *SinglyLinkedList) GetNode(index int) *ListNode {
 	return cur
 }
 
+func (this *SinglyLinkedList) GetNodeByValue(val int) *ListNode {
+	if this.Size == 0 {
+		return nil
+	}
+	cur := this.Head
+	for i := 0; i < this.Size; i++ {
+		if cur.Val == val {
+			return cur
+		}
+		cur = cur.Next
+	}
+	return nil
+}
+
 func (this *SinglyLinkedList) AddAtHead(val int) {
 	this.AddAtIndex(0, val)
 }
