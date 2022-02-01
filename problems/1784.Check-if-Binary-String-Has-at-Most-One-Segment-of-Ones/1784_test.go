@@ -18,10 +18,18 @@ func testCases() []testCase {
 	}
 }
 
-func TestCheckOnesSegment(t *testing.T) {
+func TestCheckOnesSegment_1(t *testing.T) {
 	testCases := testCases()
 	for _, testCase := range testCases {
-		output := checkOnesSegment(testCase.Input)
+		output := checkOnesSegment_1(testCase.Input)
+		assert.Equal(t, testCase.Output, output)
+	}
+}
+
+func TestCheckOnesSegment_2(t *testing.T) {
+	testCases := testCases()
+	for _, testCase := range testCases {
+		output := checkOnesSegment_2(testCase.Input)
 		assert.Equal(t, testCase.Output, output)
 	}
 }
