@@ -1,20 +1,29 @@
 package p0014
 
+// 兩兩比較
 func longestCommonPrefix(strs []string) string {
-	if len(strs) == 1 {
-		return strs[0]
+	if len(strs) == 0 {
+		return ""
 	}
+	prefix := strs[0]
+	for i := 1; i < len(strs) && prefix != ""; i++ {
+		prefix = lcp(prefix, strs[i])
+	}
+	return prefix
+}
 
-	commonPrefix := ""
-out:
-	for i := 0; i < len(strs[0]); i++ {
-		c := strs[0][i]
-		for j := 1; j < len(strs); j++ {
-			if len(strs[j]) < i+1 || strs[j][i] != c {
-				break out
-			}
-		}
-		commonPrefix += string(c)
+func lcp(s1, s2 string) string {
+	n := min(len(s1), len(s2))
+	i := 0
+	for i < n && s1[i] == s2[i] {
+		i++
 	}
-	return commonPrefix
+	return s1[:i]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
