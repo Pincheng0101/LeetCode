@@ -38,3 +38,25 @@ BenchmarkNormalConcatLongString-8         208395            103228 ns/op        
 BenchmarkBytesBufferLongString-8        100000000               18.58 ns/op           34 B/op          0 allocs/op
 BenchmarkStringsBuiderLongString-8      100000000               10.82 ns/op           61 B/op          0 allocs/op
 ```
+
+## Convert Bytes and String
+標準轉換會有一次重新分配記憶體的操作，而 unsafe.Pointer 是直接替換指標的指向，所以後者的效能會比較好。
+
+```
+BenchmarkConvertBytesToString-8                         272225202                4.561 ns/op           0 B/op          0 allocs/op
+BenchmarkConvertBytesToStringWithUnsafePointer-8        1000000000               0.2768 ns/op          0 B/op          0 allocs/op
+BenchmarkConvertStringToBytes-8                         234166994                5.235 ns/op           0 B/op          0 allocs/op
+BenchmarkConvertStringToBytesWithUnsafePointer-8        1000000000               0.2792 ns/op          0 B/op          0 allocs/op
+```
+不過 BytesToString 和 StringToBytes 有差異是，String 所需的空間大小比 Bytes 大，且 String 是不可修改的，
+如果直接透過 unsafe.Pointer 將 Bytes 轉成 String 會有以下問題：
+```
+s := "Test"
+bytes := *(*[]byte)(unsafe.Pointer(&s))
+bytes[0] = 'X'
+
+unexpected fault address 0x110d635
+fatal error: fault
+[signal SIGBUS: bus error code=0x2 addr=0x110d635 pc=0x10e3d00]
+```
+所以 StringToBytes 的部分建議還是使用官方提供的標準函式來轉換比較安全。
