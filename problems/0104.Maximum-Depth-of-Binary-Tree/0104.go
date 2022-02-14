@@ -11,17 +11,12 @@ import . "github.com/pincheng0101/leetcode/datastructures/binarytree"
  * }
  */
 func maxDepth(root *TreeNode) int {
-	var dfs func(*TreeNode, int) int
-	dfs = func(node *TreeNode, depth int) int {
-		if node == nil {
-			return depth
-		}
-		depth++
-		leftMaxDepth := dfs(node.Left, depth)
-		rightMaxDepth := dfs(node.Right, depth)
-		return max(leftMaxDepth, rightMaxDepth)
+	if root == nil {
+		return 0
 	}
-	return dfs(root, 0)
+	leftMaxDepth := maxDepth(root.Left)
+	rightMaxDepth := maxDepth(root.Right)
+	return max(leftMaxDepth, rightMaxDepth) + 1
 }
 
 func max(a, b int) int {
