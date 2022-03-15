@@ -1,4 +1,5 @@
 - hosts: localhost
+  gather_facts: false
   vars:
     title: "{{ title }}"
     title_name: "{{ title[title.find(' ')+1:].replace(' ', '-') }}"
