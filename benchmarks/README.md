@@ -3,6 +3,10 @@ Test Environment
 ```
 cpu: Intel(R) Core(TM) i5-8257U CPU @ 1.40GHz
 ```
+Command
+```
+go test -run ^$ -bench . -benchmem
+```
 
 ## String Concatenation
 每次串連一個字符的情況，有些方法可以事先分配所需空間
