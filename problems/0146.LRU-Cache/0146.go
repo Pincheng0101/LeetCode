@@ -7,6 +7,9 @@ type item struct {
 	value int
 }
 
+// thread-safe lru-cache implementation
+// https://www.code-recipe.com/post/lru-cache
+
 type LRUCache struct {
 	capacity  int
 	itemsList *list.List
