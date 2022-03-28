@@ -11,12 +11,12 @@ func findDifference(nums1 []int, nums2 []int) [][]int {
 	}
 	ans := make([][]int, 2)
 	ans[0], ans[1] = make([]int, 0), make([]int, 0)
-	for key, _ := range m2 {
+	for key := range m2 {
 		if _, ok := m1[key]; !ok {
 			ans[1] = append(ans[1], key)
 		}
 	}
-	for key, _ := range m1 {
+	for key := range m1 {
 		if _, ok := m2[key]; !ok {
 			ans[0] = append(ans[0], key)
 		}
