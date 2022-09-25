@@ -30,6 +30,6 @@ func TestSearchBST(t *testing.T) {
 	for _, testCase := range testCases {
 		tree := NewBinaryTree(testCase.Input.root)
 		output := searchBST(tree.Root, testCase.Input.val)
-		assert.Equal(t, testCase.Output, output.GetNodeValues())
+		assert.Equal(t, testCase.Output, output.GetNodeValuesWithDFS())
 	}
 }

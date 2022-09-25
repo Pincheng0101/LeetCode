@@ -1,5 +1,7 @@
 package binarytree
 
+import "container/list"
+
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
@@ -49,4 +51,49 @@ func AddNode(val []interface{}) *TreeNode {
 	node.Left = AddNode(leftNodeVal)
 	node.Right = AddNode(rightNodeVal)
 	return node
+}
+
+func (t *TreeNode) GetNodeValuesWithDFS() []int {
+	values := []int{}
+	var dfs func(*TreeNode)
+	dfs = func(td *TreeNode) {
+		if td == nil {
+			return
+		}
+		values = append(values, td.Val)
+		dfs(td.Left)
+		dfs(td.Right)
+	}
+	dfs(t)
+
+	return values
+}
+
+func (t *TreeNode) GetNodeValuesWithBFS() []int {
+	values := []int{}
+	queue := list.New()
+	queue.PushBack(t)
+	var bfs func()
+	bfs = func() {
+		if queue.Len() == 0 {
+			return
+		}
+
+		for i := 0; i < queue.Len(); i++ {
+			qnode := queue.Front()
+			node := qnode.Value.(*TreeNode)
+			values = append(values, node.Val)
+			if node.Left != nil {
+				queue.PushBack(node.Left)
+			}
+			if node.Right != nil {
+				queue.PushBack(node.Right)
+			}
+			queue.Remove(qnode)
+		}
+		bfs()
+	}
+	bfs()
+
+	return values
 }
