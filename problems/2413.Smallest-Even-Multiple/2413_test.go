@@ -18,7 +18,7 @@ func testCases() []testCase {
 	}
 }
 
-func TestFunction(t *testing.T) {
+func TestSmallestEvenMultiple(t *testing.T) {
 	testCases := testCases()
 	for _, testCase := range testCases {
 		output := smallestEvenMultiple(testCase.Input)
